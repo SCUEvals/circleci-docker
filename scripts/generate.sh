@@ -2,6 +2,9 @@
 
 echo "FROM buildpack-deps:$(awk -F'_' '{print tolower($2)}' <<< $LINUX_VERSION)"
 
+echo "RUN locale-gen C.UTF-8 || true
+ENV LANG=C.UTF-8"
+
 echo "RUN apt-get update"
 
 if [ ! -e $RUBY_VERSION_NUM ] ; then
@@ -122,4 +125,4 @@ RUN curl --silent --show-error --location --fail --retry 3 --output /tmp/chromed
   && chmod +x /usr/local/bin/chromedriver"
 fi
 
-echo "RUN npm install -g dredd@5.1.5"
+echo "RUN npm install dredd@5.1.5"
