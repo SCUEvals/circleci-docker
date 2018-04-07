@@ -125,4 +125,4 @@ RUN curl --silent --show-error --location --fail --retry 3 --output /tmp/chromed
   && chmod +x /usr/local/bin/chromedriver"
 fi
 
-echo "RUN npm install dredd@5.1.5"
+echo "RUN npm install -g dredd@5.1.5 --no-optional"
